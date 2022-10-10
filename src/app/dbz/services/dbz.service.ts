@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Personaje } from "../interfaces/dbz.interface";
+import { Personaje } from '../interfaces/dbz.interface';
 
 @Injectable()
 export class DbzService{
@@ -15,14 +15,17 @@ export class DbzService{
         }
       ];
 
+    constructor(){
+        console.log("Servicio inicializado"); 
+    }
+
     get personajes(): Personaje[] {
         //spread separa cada elemento y crea uno nuevo 
         return [...this._personajes];
     }
 
-    constructor(){
-        console.log("Servicio inicializado");
-        
+    agregarPersonaje( data: Personaje){
+        this._personajes.push(data);
     }
 
 }
