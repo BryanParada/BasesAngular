@@ -9,12 +9,17 @@ import { DbzService } from '../services/dbz.service';
 })
 export class PersonajesComponent{
 
-  @Input('personajesHijoEtiqueta')
-  personajesHijo: Personaje[] = [];
+  //opcion 1
+  // @Input('personajesHijoEtiqueta')
+  // personajesHijo: Personaje[] = [];
   //opcion 2, el nombre del array deberia ser el mismo que esta en el componente padre, main-page.component.html (personajesHijo) 
   // @Input()
   // personajesHijo: Personaje[] = [];
 
-  constructor( private dbzService: DbzService ){  }
+  get personajes(){
+    return this.dbzService.personajes;
+  }
+
+  constructor( private dbzService: DbzService ){   }
 
 }
